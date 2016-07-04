@@ -10,7 +10,8 @@ namespace ConsoleApplication
     {
         public AppContext() : base()
         {
-
+            MyDbContext.Initialize(this.DefaultConnectionString);
+            Console.WriteLine(this.DefaultConnectionString);
         }
 
         public void Run()

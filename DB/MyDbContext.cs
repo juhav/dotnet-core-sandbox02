@@ -6,19 +6,25 @@ namespace ConsoleApplication
     {
         public DbSet<Configuration> Configuration { get; set; }
 
+        private static DbContextOptionsBuilder optionsBuilder;
+
         private MyDbContext(DbContextOptions options)
             : base(options)
         {
 
         }
 
+        public static void Initialize(string connectionString)
+        {
+            optionsBuilder = new DbContextOptionsBuilder();
+            optionsBuilder.UseNpgsql(connectionString, (opt) =>
+            {
+
+            });
+        }
+
         public static MyDbContext Create()
         {
-            var optionsBuilder = new DbContextOptionsBuilder();
-            optionsBuilder.UseNpgsql("Host=localhost;Username=postgres;Password=postgres;Database=test", (opt) => {
-                
-            });
-            
             return new MyDbContext(optionsBuilder.Options);
         }
     }
