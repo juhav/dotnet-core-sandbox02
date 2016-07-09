@@ -2,7 +2,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using System.Linq;
-using Microsoft.Extensions.Configuration;
 
 namespace ConsoleApplication
 {
@@ -10,13 +9,13 @@ namespace ConsoleApplication
     {
         public AppContext() : base()
         {
-            MyDbContext.Initialize(this.DefaultConnectionString);
+            // MyDbContext.Initialize(this.DefaultConnectionString);
             Console.WriteLine(this.DefaultConnectionString);
         }
 
         public void Run()
         {
-            using (var db = MyDbContext.Create())
+            using (var db = new MyDbContext())
             {
                 var rows = db.Configuration.AsNoTracking().ToList();
 

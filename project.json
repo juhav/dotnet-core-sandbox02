@@ -14,7 +14,12 @@
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
     "Microsoft.AspNetCore.Mvc": "1.0.0-*",
     "Microsoft.AspNetCore.Mvc.Core": "1.0.0-*",
-    "Microsoft.AspNetCore.StaticFiles": "1.0.0-*"
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0-*",
+    "Microsoft.EntityFrameworkCore.SQLite": "1.0.0",
+    "Microsoft.EntityFrameworkCore.Design": {
+	    "version": "1.0.0-preview2-final",
+      "type": "build"
+    }
   },
 
   "frameworks": {
@@ -32,5 +37,9 @@
     "include": [
       "appsettings.json"
     ]
+  },
+  "tools": {
+    "Microsoft.EntityFrameworkCore.Tools": "1.0.0-preview2-final"
   }
+
 }
